@@ -1,11 +1,12 @@
-document.getElementById("Buscar").addEventListener("keyup",search)
+document.getElementById("Canciones").addEventListener("click",search)
 
 
 function search (){
     let text = document.getElementById("Buscar").value 
+    let textEncoded = encodeURIComponent(text);
     let sectionResult = document.getElementById("Resultados")
 
-    fetch ('https://api.spotify.com/v1/search?q=abajo_el_trabajo&type=track&',{
+    fetch (`https://api.spotify.com/v1/search?q=${textEncoded}&type=track&`,{
     method:'GET',
     headers:{
         'Authorization': 'Bearer '+ token,
