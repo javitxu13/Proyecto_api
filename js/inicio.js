@@ -8,7 +8,8 @@ function search (){
     fetch ('https://api.spotify.com/v1/search?q=abajo+el+trabajo&type=track&',{
     method:'GET',
     headers:{
-        'Authentication': 'Bearer '+ token
+        'Authorization': 'Bearer '+ token,
+        
     }
     })
     .then(response => response.json())
