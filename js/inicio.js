@@ -13,7 +13,12 @@ function search (){
     }
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data =>{
+        let items = data.tracks.items
+        items.forEach(element => {
+            console.log (`${element.name} / ${element.album.name}`)
+        });
+    })
     .catch(error => console.error(error))
 }
 
