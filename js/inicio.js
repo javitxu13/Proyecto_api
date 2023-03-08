@@ -9,7 +9,6 @@ function search (){
     method:'GET',
     headers:{
         'Authorization': 'Bearer '+ token,
-
     }
     })
     .then(response => response.json())
