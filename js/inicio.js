@@ -1,13 +1,19 @@
 document.getElementById("Buscar").addEventListener("keyup",search)
 
+
 function search (){
     let text = document.getElementById("Buscar").value 
     let sectionResult = document.getElementById("Resultados")
-    let iconoFav = crearIcono("fa-heart",favoritos);
-    fetch ('https://api.spotify.com/v1/search?q=abajo el trabajo&type=track&')
-    let section = document.createElement("section")
-    section.appendChild(iconoFav)
 
+    fetch ('https://api.spotify.com/v1/search?q=abajo+el+trabajo&type=track&',{
+    method:'GET',
+    headers:{
+        'Authentication': 'Bearer '+ token
+    }
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error))
 }
 
 
