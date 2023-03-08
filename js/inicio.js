@@ -5,11 +5,11 @@ function search (){
     let text = document.getElementById("Buscar").value 
     let sectionResult = document.getElementById("Resultados")
 
-    fetch ('https://api.spotify.com/v1/search?q=abajo+el+trabajo&type=track&',{
+    fetch ('https://api.spotify.com/v1/search?q=abajo_el_trabajo&type=track&',{
     method:'GET',
     headers:{
         'Authorization': 'Bearer '+ token,
-        
+
     }
     })
     .then(response => response.json())
