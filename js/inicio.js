@@ -46,4 +46,3 @@ function searchAlbums (){
     .catch(error => console.error(error))
 
 }
-
