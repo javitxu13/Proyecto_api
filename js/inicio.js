@@ -33,17 +33,34 @@ function search(event) {
 function showTracks(tracks) {
   tracks.forEach((element) => {
     console.log(`${element.name} / ${element.album.name}`);
+    mostrarElemento(`${element.name} / ${element.album.name}`);
   });
 }
 
 function showArtists(artists) {
   artists.forEach((element) => {
     console.log(`${element.name}`);
+    mostrarElemento(`${element.name}`);
   });
 }
 
 function showAlbums(album) {
   album.forEach((element) => {
     console.log(`${element.name}`);
+    mostrarElemento(`${element.name}`);
   });
+}
+
+function mostrarElemento(elemento) {
+  // Obtenemos la lista del HTML y la asignamos a una variable
+  let lista = document.getElementById('miLista');
+
+  // Creamos un elemento <li> y le asignamos el texto pasado como argumento
+  let nuevoElemento = document.createElement('li');
+  nuevoElemento.textContent = elemento;
+
+  //li.addEventListener("keyup",searchAlbums); /*cada vez q se crea un nuevo elemento de la lista, le estamos pasando la función clickImportant para que podamos*/
+
+  // Agregamos el nuevo elemento a la lista
+  lista.appendChild(nuevoElemento);
 }
