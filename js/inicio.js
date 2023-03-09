@@ -1,13 +1,14 @@
-document.getElementById("Canciones").addEventListener("click", searchSongs);
-document.getElementById("Artistas").addEventListener("click", searchArtist);
-document.getElementById("Albums").addEventListener("click", searchAlbums);
+document.getElementById("track").addEventListener("click", search);
+document.getElementById("artist").addEventListener("click", search);
+document.getElementById("album").addEventListener("click", search);
 
-function searchSongs() {
+function search(event) {
   let text = document.getElementById("Buscar").value;
   let textEncoded = encodeURIComponent(text);
   let sectionResult = document.getElementById("Resultados");
-
-  fetch(`https://api.spotify.com/v1/search?q=${textEncoded}&type=track&`, {
+  let boton = event.target;
+  let type = boton.id;
+  fetch(`https://api.spotify.com/v1/search?q=${textEncoded}&type=${type}&`, {
     method: "GET",
     headers: {
       Authorization: "Bearer " + token,
@@ -15,61 +16,34 @@ function searchSongs() {
   })
     .then((response) => response.json())
     .then((data) => {
-      let items = data.tracks.items;
-      items.forEach((element) => {
-        console.log(`${element.name} / ${element.album.name}`);
-      });
+      if (type === "track") {
+        let items = data.tracks.items;
+        showTracks(items);
+      } else if (type === "artist") {
+        let items = data.artists.items;
+        showArtists(items);
+      } else if (type === "album") {
+        let items = data.albums.items;
+        showAlbums(items);
+      }
     })
     .catch((error) => console.error(error));
 }
 
-function searchArtist() {
-  let text = document.getElementById("Buscar").value;
-  let textEncoded = encodeURIComponent(text);
-  let sectionResult = document.getElementById("Resultados");
-
-  fetch(`https://api.spotify.com/v1/search?q=${textEncoded}&type=artist&`, {
-    method: "GET",
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      let items = data.artists.items;
-      items.forEach((element) => {
-        console.log(`${element.name}`);
-      });
-    })
-    .catch((error) => console.error(error));
+function showTracks(tracks) {
+  tracks.forEach((element) => {
+    console.log(`${element.name} / ${element.album.name}`);
+  });
 }
 
-
-function searchAlbums (){
-    let text = document.getElementById("Buscar").value 
-    let textEncoded = encodeURIComponent(text);
-    let sectionResult = document.getElementById("Resultados")
-
-    fetch (`https://api.spotify.com/v1/search?q=${textEncoded}&type=album&`,{
-    method:'GET',
-    headers:{
-        Authorization: 'Bearer '+ token,
-    },
-    })
-    .then(response => response.json())
-    .then(data =>{
-        let items = data.albums.items
-        items.forEach(element => {
-            console.log (`${element.name}`)
-        });
-    })
-    .catch(error => console.error(error))
-
-let resultadosDiv = document.getElementById('Buscador');
-let nombreAlbums = element.album.name;
-let nombreCanciones = element.name;
-let nuevoElemento = document.createElement('p');
-nuevoElemento.textContent = `${nombreCanciones} / ${nombreAlbums}`;
-resultadosDiv.appendChild(nuevoElemento);
+function showArtists(artists) {
+  artists.forEach((element) => {
+    console.log(`${element.name}`);
+  });
 }
 
+function showAlbums(album) {
+  album.forEach((element) => {
+    console.log(`${element.name}`);
+  });
+}
