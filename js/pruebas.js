@@ -2,6 +2,9 @@ document.getElementById("track").addEventListener("click", search);
 document.getElementById("artist").addEventListener("click", search);
 document.getElementById("album").addEventListener("click", search);
 
+/* let boton = document.getElementById("artist");
+boton.addEventListener("click", mostrarResultado); */
+
 function search(event) {
   let text = document.getElementById("Buscar").value;
   let textEncoded = encodeURIComponent(text);
@@ -47,3 +50,16 @@ function showAlbums(album) {
     console.log(`${element.name}`);
   });
 }
+
+/*
+function crearResultado(Artista) {
+  let ul = document.createElement("ul");
+  let li = document.createElement("li");
+
+  li.innerText = Artista;
+
+  ul.appendChild(li);
+
+  document.getElementById("Artistas").appendChild(ul);
+}
+*/
