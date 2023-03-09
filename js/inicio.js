@@ -1,8 +1,9 @@
-document.getElementById("Canciones").addEventListener("click",search)
+document.getElementById("Canciones").addEventListener("click",searchSong);
 document.getElementById("Albums").addEventListener("click", searchAlbums);
 
 
-function search (){
+
+function searchSong (){
     let text = document.getElementById("Buscar").value 
     let textEncoded = encodeURIComponent(text);
     let sectionResult = document.getElementById("Resultados")
@@ -21,22 +22,6 @@ function search (){
         });
     })
     .catch(error => console.error(error))
-}
-
-
-function crearIcono(simbolo,callback){
-    let icono = document.createElement("i");
-    icono.classList.add("fa",simbolo);
-    icono.addEventListener("click",callback);
-    return icono;
-
-}
-
-
-function favoritos(){
-    let button = document.createElement("button")
-    let iconoFav = crearIcono("fa-heart",favoritos);
-     //("fas fa-heart-broken")
 }
 
 
@@ -60,11 +45,5 @@ function searchAlbums (){
     })
     .catch(error => console.error(error))
 
-let resultadosDiv = document.getElementById('Buscador');
-let nombreAlbums = element.album.name;
-let nombreCanciones = element.name;
-let nuevoElemento = document.createElement('p');
-nuevoElemento.textContent = `${nombreCanciones} / ${nombreAlbums}`;
-resultadosDiv.appendChild(nuevoElemento);
 }
 
