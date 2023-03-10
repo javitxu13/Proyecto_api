@@ -3,10 +3,12 @@ document.getElementById("artist").addEventListener("click", search);
 document.getElementById("album").addEventListener("click", search);
 
 function search(event) {
-  let text = document.getElementById("Buscar").value;
+  let text = document.getElementById("Buscar").value.trim();
+  if(text === "") return;
   let textEncoded = encodeURIComponent(text);
   let boton = event.target;
   let type = boton.id;
+
   fetch(`https://api.spotify.com/v1/search?q=${textEncoded}&type=${type}&`, {
     method: "GET",
     headers: {
@@ -15,6 +17,7 @@ function search(event) {
   })
     .then((response) => response.json())
     .then((data) => {
+      borrarLista();
       if (type === "track") {
         let items = data.tracks.items;
         showTracks(items);
@@ -50,6 +53,14 @@ function showAlbums(album) {
   });
 }
 
+
+function borrarLista(){
+  let miDiv = document.getElementById("miLista");
+  miDiv.innerHTML = "";
+}
+
+
+
 function mostrarElemento(elemento) {
   // Obtenemos la lista del HTML y la asignamos a una variable
   let lista = document.getElementById("miLista");
@@ -61,8 +72,6 @@ function mostrarElemento(elemento) {
   link.setAttribute("target", "_blank");
   link.textContent = elemento.name;
   nuevoElemento.appendChild(link);
-
-  //li.addEventListener("keyup",searchAlbums); /*cada vez q se crea un nuevo elemento de la lista, le estamos pasando la función clickImportant para que podamos*/
 
   // Agregamos el nuevo elemento a la lista
   lista.appendChild(nuevoElemento);
