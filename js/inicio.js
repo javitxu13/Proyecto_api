@@ -5,7 +5,6 @@ document.getElementById("album").addEventListener("click", search);
 function search(event) {
   let text = document.getElementById("Buscar").value;
   let textEncoded = encodeURIComponent(text);
-  let sectionResult = document.getElementById("Resultados");
   let boton = event.target;
   let type = boton.id;
   fetch(`https://api.spotify.com/v1/search?q=${textEncoded}&type=${type}&`, {
@@ -33,31 +32,35 @@ function search(event) {
 function showTracks(tracks) {
   tracks.forEach((element) => {
     console.log(`${element.name} / ${element.album.name}`);
-    mostrarElemento(`${element.name} / ${element.album.name}`);
+    mostrarElemento(element);
   });
 }
 
 function showArtists(artists) {
   artists.forEach((element) => {
     console.log(`${element.name}`);
-    mostrarElemento(`${element.name}`);
+    mostrarElemento(element);
   });
 }
 
 function showAlbums(album) {
   album.forEach((element) => {
     console.log(`${element.name}`);
-    mostrarElemento(`${element.name}`);
+    mostrarElemento(element);
   });
 }
 
 function mostrarElemento(elemento) {
   // Obtenemos la lista del HTML y la asignamos a una variable
-  let lista = document.getElementById('miLista');
+  let lista = document.getElementById("miLista");
 
   // Creamos un elemento <li> y le asignamos el texto pasado como argumento
-  let nuevoElemento = document.createElement('li');
-  nuevoElemento.textContent = elemento;
+  let nuevoElemento = document.createElement("li");
+  let link = document.createElement("a");
+  link.setAttribute("href", "artist.html?id=" + elemento.id);
+  link.setAttribute("target", "_blank");
+  link.textContent = elemento.name;
+  nuevoElemento.appendChild(link);
 
   //li.addEventListener("keyup",searchAlbums); /*cada vez q se crea un nuevo elemento de la lista, le estamos pasando la función clickImportant para que podamos*/
 

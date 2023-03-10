@@ -1,2 +1,88 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
+html,
+body {
+  width: 100%;
+}
 
+body {
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#espacioBlanco {
+  width: 100%;
+  height: 100px;
+}
+
+#titulo {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 10em;
+  margin-bottom: 50px;
+  color: #eeeee9;
+}
+
+#titulo::first-letter {
+  color: #e5b73b;
+}
+
+#Buscar {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  width: 700px;
+  background-color: #eeeee9;
+}
+
+div#Botones {
+  width: 100%;
+  padding: 0.8em;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.botoncitos {
+  border: 2px solid transparent;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 20px;
+  font-size: xx-large;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+#Botones button:hover {
+  background-color: #555151;
+  color: #eeeee9;
+  border: 2px solid #eeeee9;
+}
+
+ul > li {
+  justify-content: start;
+  flex-wrap: wrap;
+  display: block;
+  text-align: left;
+  color: white;
+  opacity: 0.4;
+  transition: 0.9s;
+}
+
+ul > li:hover {
+  opacity: 1;
+}
+
+section#Resultados {
+  font-size: xx-large;
+  gap: 30px;
+}
