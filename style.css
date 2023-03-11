@@ -26,21 +26,39 @@ body {
 }
 
 #titulo {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 10em;
+  font-family: "Montserrat", sans-serif;
+  font-size: 3em;
+  margin-top: -50px;
   margin-bottom: 50px;
   color: #eeeee9;
 }
 
-#titulo::first-letter {
-  color: #e5b73b;
+img#logo {
+  display: inline;
+  justify-content: center;
+  margin-top: -100px;
+  width: 650px;
+  height: 250px;
+}
+
+#nombreGrupo {
+  font-size: 10em;
+  color: #eeeee9;
+  float: right;
+}
+
+#imagenGrupo {
+  border-radius: 50%;
+  max-width: 25%;
+  max-height: 25%;
+  float: left;
 }
 
 #Buscar {
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 20px;
-  width: 700px;
+  width: 100vh;
   background-color: #eeeee9;
 }
 
@@ -50,6 +68,7 @@ div#Botones {
   align-items: center;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .botoncitos {
@@ -60,25 +79,30 @@ div#Botones {
   font-size: xx-large;
   margin: 10px;
   transition: 0.3s;
+  font-family: "Montserrat", sans-serif;
+  color: #474444;
 }
 
 #Botones button:hover {
   background-color: #555151;
   color: #eeeee9;
-  border: 2px solid #eeeee9;
+  border: 2px solid #e9a510;
 }
 
-ul > li {
+ul > li > a {
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
   justify-content: start;
   flex-wrap: wrap;
   display: block;
   text-align: left;
   color: white;
-  opacity: 0.4;
+  opacity: 1;
   transition: 0.9s;
 }
 
-ul > li:hover {
+ul > li > a:hover {
+  color: #e9a510;
   opacity: 1;
 }
 
