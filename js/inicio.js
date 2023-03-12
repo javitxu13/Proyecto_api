@@ -4,7 +4,7 @@ document.getElementById("album").addEventListener("click", search);
 
 function search(event) {
   let text = document.getElementById("Buscar").value.trim();
-  if(text === "") return;
+  if (text === "") return;
   let textEncoded = encodeURIComponent(text);
   let boton = event.target;
   let type = boton.id;
@@ -53,8 +53,7 @@ function showAlbums(album) {
   });
 }
 
-
-function borrarLista(){
+function borrarLista() {
   let miDiv = document.getElementById("miLista");
   miDiv.innerHTML = "";
 }
@@ -63,18 +62,17 @@ function mostrarElemento(elemento) {
   // Obtenemos la lista del HTML y la asignamos a una variable
   let lista = document.getElementById("miLista");
   // Creamos un elemento <li> y le asignamos el texto pasado como argumento
-   let nuevoElemento = document.createElement("li");
+  let nuevoElemento = document.createElement("li");
   let link = document.createElement("a");
+
   link.setAttribute("href", "artist.html?id=" + elemento.id);
   link.setAttribute("target", "_blank");
+
   link.textContent = elemento.name;
   nuevoElemento.appendChild(link);
 
   // Agregamos el nuevo elemento a la lista
   lista.appendChild(nuevoElemento);
-
-  
-
 
   //Creamos icono fav
   let iconoEstrella = document.createElement("i");
@@ -83,12 +81,9 @@ function mostrarElemento(elemento) {
 
   // Agregamos el nuevo elemento a la lista
   lista.appendChild(nuevoElemento);
-
-  
 }
 
-
- function listaFavoritos(){
+function listaFavoritos() {
   // Obtener el elemento de lista que queremos
   let lista = document.getElementById("miLista");
 
@@ -101,37 +96,31 @@ function mostrarElemento(elemento) {
     elementos[i].appendChild(botonFavoritos);
 
     // Agregar un manejador de eventos al botón de favoritos
-    botonFavoritos.addEventListener("click",()=>{
-      addFavorito
+    botonFavoritos.addEventListener("click", () => {
+      addFavorito;
     });
   }
-} 
+}
 
-function getFavoritos(){
-  let favoritos = localStorage.getItem("Favoritos")
-  if(favoritos==null){
-    favoritos = []
-  }else{
-    favoritos = JSON.parse(favoritos)
+function getFavoritos() {
+  let favoritos = localStorage.getItem("Favoritos");
+  if (favoritos == null) {
+    favoritos = [];
+  } else {
+    favoritos = JSON.parse(favoritos);
   }
   return favoritos;
-
 }
 
-function addFavorito(nombre){
-  let favoritos = getFavoritos()
-  if(favoritos.includes(nombre)){
+function addFavorito(nombre) {
+  let favoritos = getFavoritos();
+  if (favoritos.includes(nombre)) {
     return;
   }
-  favoritos.push(nombre)
+  favoritos.push(nombre);
   let favoritosString = JSON.stringify(favoritos);
-  localStorage.setItem('Favoritos', favoritosString);
-
-
-  
+  localStorage.setItem("Favoritos", favoritosString);
 }
-
-
 
 /* // Función para agregar elementos a favoritos (ya definida anteriormente)
 function agregarAFavoritos(elemento) {
@@ -156,6 +145,3 @@ console.log(elementoEnFormatoOriginal); // 'elemento2'
 
 
  */
-
-
-
