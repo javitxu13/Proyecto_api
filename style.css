@@ -1,0 +1,260 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  align-items: center;
+}
+
+body {
+  padding: 50px 150px;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#titulo {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3em;
+  margin-bottom: 50px;
+  color: #eeeee9;
+}
+
+h3,
+h2,
+h1,
+a {
+  margin-bottom: 50px;
+}
+
+section#finalResults {
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section#albumResults {
+  display: block;
+  flex-wrap: wrap;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+img#logo {
+  display: inline;
+  justify-content: center;
+  width: 650px;
+  height: 250px;
+  object-fit: contain;
+}
+
+h3 {
+  font-size: 75px;
+  color: #e9a510;
+}
+
+h2#nombreResult {
+  width: 100%;
+  font-size: 75px;
+  color: #eeeee9;
+}
+
+h1 {
+  color: #eeeee9;
+  font-size: 75px;
+}
+
+p#trackDuration {
+  color: #e9a510;
+  font-size: 30px;
+}
+
+#albumImage {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  float: left;
+  margin-bottom: 50px;
+}
+
+#imagenGrupo {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 50px;
+}
+
+#enlaceGrupo {
+  color: #e9a510;
+  font-size: large;
+}
+
+#generoGrupo {
+  justify-content: center;
+  font-size: xx-large;
+  width: 50%;
+  color: #e9a510;
+  display: block;
+}
+#generoGrupo::before {
+  content: "Géneros: ";
+  font-size: larger;
+  color: #a7760f;
+}
+
+#Buscar {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  width: 70%;
+  background-color: #eeeee9;
+}
+
+div#Botones {
+  width: 100%;
+  padding: 0.8em;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.botoncitos {
+  border: 2px solid transparent;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 20px;
+  font-size: xx-large;
+  margin: 10px;
+  transition: 0.3s;
+  font-family: "Montserrat", sans-serif;
+  color: #474444;
+}
+
+#Botones button:hover {
+  background-color: #555151;
+  color: #eeeee9;
+  border: 2px solid #e9a510;
+}
+
+ul > li > a {
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  justify-content: start;
+  flex-wrap: wrap;
+  display: block;
+  text-align: left;
+  color: white;
+  opacity: 1;
+  transition: 0.9s;
+  margin-bottom: 50px;
+}
+
+ul > li > a:hover {
+  color: #e9a510;
+  opacity: 1;
+}
+
+#songList {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: start;
+  float: right;
+  color: #e9a510;
+  font-size: x-large;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  gap: 25px;
+}
+
+section#Resultados {
+  width: 100%;
+  font-size: xx-large;
+  gap: 30px;
+  padding-left: 170px;
+}
+ul#miLista {
+  display: block;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 450px) {
+  img#logo {
+    width: 300px;
+    height: 100px;
+  }
+  body {
+    padding: 8px 16px;
+  }
+  #imagenGrupo {
+    width: 250px;
+    height: 250px;
+  }
+  #albumImage {
+    width: 250px;
+    height: 250px;
+  }
+  h2#nombreResult {
+    font-size: 50px;
+  }
+
+  section#Resultados {
+    width: 100%;
+    font-size: xx-large;
+    gap: 30px;
+    padding-left: 60px;
+  }
+  section#albumResults {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  #songList {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    text-align: start;
+    float: right;
+    color: #e9a510;
+    font-size: x-large;
+    margin-left: 0px;
+    margin-bottom: 50px;
+    gap: 25px;
+  }
+
+  h3 {
+    font-size: 50px;
+    color: #e9a510;
+  }
+
+  h1 {
+    color: #eeeee9;
+    font-size: 50px;
+  }
+
+  p#trackDuration {
+    color: #e9a510;
+    font-size: 20px;
+  }
+}
