@@ -13,20 +13,20 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
     </style>
-    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="espacioBlanco"></div>
-    <img id="logo" src="MUSICHUB-logo.png" />
+    <a href="index.html">
+      <img id="logo" src="MUSICHUB-logo.png" />
+    </a>
     <h1 id="titulo">¿Qué quieres escuchar?</h1>
-    <section id="Buscador">
-      <input
-        type="text"
-        id="Buscar"
-        placeholder="Busca tu artista, album o canción..."
-      />
-    </section>
+
+    <input
+      type="text"
+      id="Buscar"
+      placeholder="Busca tu artista, album o canción..."
+    />
 
     <div id="Botones">
       <button class="botoncitos" id="artist">Artistas</button>
@@ -46,7 +46,6 @@
     <section id="Favoritos"></section>
 
     <script src="js/token.js"></script>
-
     <script src="js/inicio.js"></script>
   </body>
 </html>

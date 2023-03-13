@@ -35,21 +35,21 @@ function search(event) {
 function showTracks(tracks) {
   tracks.forEach((element) => {
     console.log(`${element.name} / ${element.album.name}`);
-    mostrarElemento(element);
+    mostrarElementoTrack(element);
   });
 }
 
 function showArtists(artists) {
   artists.forEach((element) => {
     console.log(`${element.name}`);
-    mostrarElemento(element);
+    mostrarElementoArtista(element);
   });
 }
 
 function showAlbums(album) {
   album.forEach((element) => {
     console.log(`${element.name}`);
-    mostrarElemento(element);
+    mostrarElementoAlbum(element);
   });
 }
 
@@ -58,7 +58,7 @@ function borrarLista() {
   miDiv.innerHTML = "";
 }
 
-function mostrarElemento(elemento) {
+function mostrarElementoArtista(elemento) {
   // Obtenemos la lista del HTML y la asignamos a una variable
   let lista = document.getElementById("miLista");
   // Creamos un elemento <li> y le asignamos el texto pasado como argumento
@@ -66,7 +66,6 @@ function mostrarElemento(elemento) {
   let link = document.createElement("a");
 
   link.setAttribute("href", "artist.html?id=" + elemento.id);
-  link.setAttribute("target", "_blank");
 
   link.textContent = elemento.name;
   nuevoElemento.appendChild(link);
@@ -75,9 +74,57 @@ function mostrarElemento(elemento) {
   lista.appendChild(nuevoElemento);
 
   //Creamos icono fav
-  let iconoEstrella = document.createElement("i");
+  /* let iconoEstrella = document.createElement("i");
   iconoEstrella.classList.add("fa", "fa-heart");
-  nuevoElemento.appendChild(iconoEstrella);
+  nuevoElemento.appendChild(iconoEstrella); */
+
+  // Agregamos el nuevo elemento a la lista
+  lista.appendChild(nuevoElemento);
+}
+
+function mostrarElementoAlbum(elemento) {
+  // Obtenemos la lista del HTML y la asignamos a una variable
+  let lista = document.getElementById("miLista");
+  // Creamos un elemento <li> y le asignamos el texto pasado como argumento
+  let nuevoElemento = document.createElement("li");
+  let link = document.createElement("a");
+
+  link.setAttribute("href", "album.html?id=" + elemento.id);
+
+  link.textContent = elemento.name;
+  nuevoElemento.appendChild(link);
+
+  // Agregamos el nuevo elemento a la lista
+  lista.appendChild(nuevoElemento);
+
+  //Creamos icono fav
+  /* let iconoEstrella = document.createElement("i");
+  iconoEstrella.classList.add("fa", "fa-heart");
+  nuevoElemento.appendChild(iconoEstrella); */
+
+  // Agregamos el nuevo elemento a la lista
+  lista.appendChild(nuevoElemento);
+}
+
+function mostrarElementoTrack(elemento) {
+  // Obtenemos la lista del HTML y la asignamos a una variable
+  let lista = document.getElementById("miLista");
+  // Creamos un elemento <li> y le asignamos el texto pasado como argumento
+  let nuevoElemento = document.createElement("li");
+  let link = document.createElement("a");
+
+  link.setAttribute("href", "track.html?id=" + elemento.id);
+
+  link.textContent = elemento.name;
+  nuevoElemento.appendChild(link);
+
+  // Agregamos el nuevo elemento a la lista
+  lista.appendChild(nuevoElemento);
+
+  //Creamos icono fav
+  /* let iconoEstrella = document.createElement("i");
+  iconoEstrella.classList.add("fa", "fa-heart");
+  nuevoElemento.appendChild(iconoEstrella); */
 
   // Agregamos el nuevo elemento a la lista
   lista.appendChild(nuevoElemento);
