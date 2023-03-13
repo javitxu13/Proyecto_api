@@ -188,6 +188,7 @@ section#Resultados {
   width: 100%;
   font-size: xx-large;
   gap: 30px;
+  padding-left: 170px;
 }
 ul#miLista {
   display: block;
@@ -212,6 +213,13 @@ ul#miLista {
   }
   h2#nombreResult {
     font-size: 50px;
+  }
+
+  section#Resultados {
+    width: 100%;
+    font-size: xx-large;
+    gap: 30px;
+    padding-left: 60px;
   }
   section#albumResults {
     display: flex;
